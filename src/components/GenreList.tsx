@@ -4,7 +4,7 @@ import {
   List,
   ListItem,
   Image,
-  Spinner,
+  //Spinner,
   Button,
   Heading,
 } from "@chakra-ui/react";
@@ -16,7 +16,7 @@ interface GenreListProps {
 }
 
 const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
-  const { data, isLoading, error } = useGenres();
+  const { data } = useGenres();
 
   // Not using these two lines for now. Setting Genres to load statically to make loading easier on user.
   //if (error) return null;
