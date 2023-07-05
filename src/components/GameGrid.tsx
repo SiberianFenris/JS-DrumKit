@@ -3,7 +3,6 @@ import useGames, { Platform } from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../hooks/useGenres";
 import { GameQuery } from "../App";
 
 interface GameGridProps {
@@ -12,9 +11,7 @@ interface GameGridProps {
 
 const GameGrid = ({ gameQuery }: GameGridProps) => {
   const { data, error, isLoading } = useGames(gameQuery);
-  const skeletons = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
+  const skeletonCount = 20; // Set the desired number of skeletons here
 
   return (
     <>
@@ -25,8 +22,8 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
         spacing={3}
       >
         {isLoading &&
-          skeletons.map((skeleton) => (
-            <GameCardContainer key={skeleton}>
+          Array.from({ length: skeletonCount }).map((_, index) => (
+            <GameCardContainer key={index}>
               <GameCardSkeleton />
             </GameCardContainer>
           ))}
