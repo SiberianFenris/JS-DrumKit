@@ -18,8 +18,9 @@ interface GenreListProps {
 const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
   const { data, isLoading, error } = useGenres();
 
-  if (error) return null;
-  if (isLoading) return <Spinner />; //#TODO: Try them as skeletons instead
+  // Not using these two lines for now. Setting Genres to load statically to make loading easier on user.
+  //if (error) return null;
+  //if (isLoading) return <Spinner />; //#TODO: Try them as skeletons instead
 
   return (
     <>
